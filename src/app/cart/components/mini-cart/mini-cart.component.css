@@ -1,0 +1,14 @@
+.mini-cart {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mini-cart h3 {
+    margin-right: 10px;
+  }
+  
+  .mini-cart ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }

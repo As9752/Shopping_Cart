@@ -1,0 +1,14 @@
+<header>
+    <div class="logo">
+      
+      <a href='/product' id="logdet">KloudSpotMart</a>
+    </div>
+    <div class="links">
+    <button><a [routerLink]="['/add']">Add Product </a></button>
+    <button><a [routerLink]="['/product']">Show Products</a></button>
+    <button><a [routerLink]="['/cart']">Cart</a></button>
+    </div>
+    <div class="cart">
+    <span class="cart-count">{{ cartCount }}</span>
+  </div>
+  </header>

@@ -1,0 +1,38 @@
+#details_id{
+    background-color: beige;
+}
+
+#product-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  #product-image  img :hover{
+    cursor:pointer;
+    transform: scale(1.2);
+  }
+  .product-info{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #product-price{
+    font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 10px 0;
+  }
+  #product-description{
+  font-size: 24px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transform: scaleX(0.8) scaleY(1.5);
+  }

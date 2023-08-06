@@ -1,0 +1,12 @@
+<div class="product-list">
+    <div *ngFor="let product of products">
+      <h3 id="name">Name: {{product.title}}</h3>
+      <p id="description">Description: {{ product.description }}</p>
+      <div class="alldetails">
+      <button (click)="onAddToCart(product)" id="btn">Add to Cart</button>
+      <!-- <button (clcik)="onDeleteCart(product)">Delete from Cart</button> -->
+      <p id="price">Price: {{ product.price }}</p>
+      <button id="show_details"><a [routerLink]="['/product', product.id]">Show Details</a></button>
+      </div>
+    </div>
+  </div>

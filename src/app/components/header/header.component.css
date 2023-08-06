@@ -1,0 +1,35 @@
+header {
+    background-color: darkcyan;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px 0 rgba(207, 18, 18, 0.1);
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+  }
+  #logodet{
+    text-decoration: none;
+  }
+  .links{
+    margin-left: 50%;
+  }
+  
+  .links a{
+   display: inline-block;
+   padding: 10px 20px; /* Adjust the padding as needed */
+   text-decoration: none;
+   color: #000;
+   margin-left:20px;
+  }
+  .links a.active{
+    color: #f00; /* Red color for active link */
+      font-weight: bold;
+  }
