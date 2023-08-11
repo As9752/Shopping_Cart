@@ -1,38 +1,173 @@
-#details_id{
-    background-color: beige;
+#details_id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
 }
 
-#product-image img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  #product-image  img :hover{
-    cursor:pointer;
-    transform: scale(1.2);
-  }
-  .product-info{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #product-price{
-    font-size: 18px;
-  font-weight: bold;
-  color: #007bff;
-  margin: 10px 0;
-  }
-  #product-description{
-  font-size: 24px;
-  line-height: 1.6;
-  margin: 0;
+.product-info {
+  border: 1px solid #ccc;
   padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  transform: scaleX(0.8) scaleY(1.5);
+  text-align: center;
+  width: 50%;
+}
+
+.product-info h2 {
+  margin: 0;
+  font-size: 50px;
+  font-family: "Brush Script MT", cursive, sans-serif;
+}
+
+.product-info img {
+  width: 100%;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+.product-info img:hover {
+  transform: scale(1.1);
+}
+
+.product-info p {
+  margin: 5px 0;
+  font-family: "Brush Script MT", cursive, sans-serif;
+}
+.type {
+  font-size: 30px;
+  font-family: "Brush Script MT", cursive, sans-serif;
+}
+
+.product-price {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn::before {
+  content: "\1F44D"; /* Unicode code for thumbs-up emoji */
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 18px;
+  vertical-align: middle;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s;
+}
+
+#btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+#btn:hover::before {
+  opacity: 1; /* Show the emoji when hovering */
+}
+
+#myform {
+  position: relative;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  width: 50%;
+  height: 10vh;
+  text-align: center;
+}
+
+/* CSS for the form container */
+.myform1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Adjust any other styles as needed */
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Add any additional styling as needed */
+
+/* .myform1{
+  position: absolute;
+  top:60%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border:2px solid black;
+  background-color: black;
+  color:white;
+  width:50%;
+  height:85vh;
+  text-align: center;
+} */
+
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000; /* Adjust the z-index as needed to ensure the form displays above other content */
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media screen and (max-width: 768px) {
+  #details_id {
+    flex-direction: column;
   }
+
+  .product-info {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #myform {
+    width: 80%;
+    height: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .myform1 {
+    height: auto;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+
+  /* Adjust any other styles as needed */
+}

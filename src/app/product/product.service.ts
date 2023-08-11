@@ -1,39 +1,39 @@
-import { Injectable } from '@angular/core';
-import {Product } from '../model/product';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { Hotel } from "../model/product";
+import { BehaviorSubject, Observable } from "rxjs";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ProductService {
-  private apiUrl = 'https://64c9fb12b2980cec85c2ab0f.mockapi.io/api/products';
+  private apiUrl = "http://localhost:8034/hotel-api/v1/getall";
 
   private counter = 1;
-  private products: Product[] = [];
+  private hotels: Hotel[] = [];
 
-  private productsList: Product[] = [];
-  private productsSubject$: BehaviorSubject<Product[]> = new BehaviorSubject(this.getFromStorage());
-  products$ = this.productsSubject$.asObservable()
+  private productsList: Hotel[] = [];
+  private productsSubject$: BehaviorSubject<Hotel[]> = new BehaviorSubject(
+    this.getFromStorage()
+  );
+  products$ = this.productsSubject$.asObservable();
 
-  getFromStorage(){
-    const productsFromStorage = sessionStorage.getItem('products');
-    if(productsFromStorage){
-      this.products = JSON.parse(productsFromStorage);      
+  viewBooking: any[] = [{ name: "ashish" }];
+
+  getFromStorage() {
+    const productsFromStorage = sessionStorage.getItem("products");
+    if (productsFromStorage) {
+      this.hotels = JSON.parse(productsFromStorage);
     }
-    return this.products
+    return this.hotels;
   }
 
-  setToStorage(){
-    sessionStorage.setItem('products', JSON.stringify(this.products));
+  setToStorage() {
+    sessionStorage.setItem("products", JSON.stringify(this.hotels));
   }
-  
- 
-
-  
 
   getProducts() {
-    return this.products;
+    return this.hotels;
   }
 
   // addProduct(product: Product): void {
@@ -44,38 +44,36 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getApiData() {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Hotel[]>(this.apiUrl);
   }
 
-  addProduct(product: Omit<Product, 'id'>) {
-
-    return this.http.post('https://64c9fb12b2980cec85c2ab0f.mockapi.io/api/products', product)
-
+  addProduct(hotel: Hotel) {
+    return this.http.post("http://localhost:8034/hotel-api/v1/hotels", hotel);
   }
 
- 
+  // getAllProducts() {
 
-  getAllProducts() {
+  //   return this.getFromStorage()
 
-    return this.getFromStorage()
-
-  }
-
- 
+  // }
 
   getProduct(id: string) {
-
-    return this.http.get<Product>(`https://64c9fb12b2980cec85c2ab0f.mockapi.io/api/products/${id}`)
-
+    return this.http.get<Hotel>(
+      `http://localhost:8034/hotel-api/v1/hotels/${id}`
+    );
   }
-
- 
 
   getAllFromAPI() {
-
-    return this.http.get<Product[]>('https://64c9fb12b2980cec85c2ab0f.mockapi.io/api/products')
-
+    return this.http.get<Hotel[]>("http://localhost:8034/hotel-api/v1/getall");
   }
-
-
+  getViewBookingData(item: any) {
+    console.log(1, item);
+    // this.viewBooking.push(item);
+    this.viewBooking = [...this.viewBooking, item];
+    console.log(2, this.viewBooking);
+  }
+  getBookingInViewBooking(): any[] {
+    console.log(3, this.viewBooking);
+    return this.viewBooking;
+  }
 }

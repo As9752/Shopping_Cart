@@ -1,12 +1,55 @@
+<div class="product_filter">
+  <!-- Type of Hotel -->
+  <h1>Filter Window</h1>
+  <select ng-model="selectedType">
+    <option value="">All Types</option>
+    <option value="Non-AC">Non-AC</option>
+    <option value="AC">AC</option>
+    <!-- Add more options as needed -->
+  </select>
+  <div class="input1">
+    <!-- Price Range -->
+    <input type="number" [(ngModel)]="minPrice" placeholder="Min Price" />
+
+    <input type="number" [(ngModel)]="maxPrice" placeholder="Max Price" />
+
+    <!-- Rating Range -->
+    <input type="number" [(ngModel)]="minRating" placeholder="Min Rating" />
+
+    <input type="number" [(ngModel)]="maxRating" placeholder="Max Rating" />
+
+    <!-- Location -->
+    <input type="text" [(ngModel)]="location" placeholder="Location" />
+
+    <!-- Has Lounge -->
+    <input type="checkbox" [(ngModel)]="hasLounge" /> Has Lounge
+
+    <!-- Has Parking -->
+    <input type="checkbox" [(ngModel)]="hasParking" /> Has Parking
+
+    <button
+      type="submit"
+      class="primary-btn"
+      (click)="getFilteredHotels(hotels)"
+    >
+      Apply Filters
+    </button>
+  </div>
+</div>
+
 <div class="product-list">
-    <div *ngFor="let product of products">
-      <h3 id="name">Name: {{product.title}}</h3>
-      <p id="description">Description: {{ product.description }}</p>
-      <div class="alldetails">
-      <button (click)="onAddToCart(product)" id="btn">Add to Cart</button>
+  <h1>All Hotels</h1>
+  <div *ngFor="let hotel of filteredHotels">
+    <h3 id="name">Name: {{ hotel.name }}</h3>
+    <p>Location:{{ hotel.location }}</p>
+    <p>Type:{{ hotel.type }}</p>
+    <div class="alldetails">
       <!-- <button (clcik)="onDeleteCart(product)">Delete from Cart</button> -->
-      <p id="price">Price: {{ product.price }}</p>
-      <button id="show_details"><a [routerLink]="['/product', product.id]">Show Details</a></button>
-      </div>
+      <p id="price">Price: {{ hotel.price }}</p>
+      <p id="rating">Rating:{{ hotel.rating }}</p>
+      <button id="show_details">
+        <a [routerLink]="['/hotel', hotel.id]">Show Details</a>
+      </button>
     </div>
   </div>
+</div>

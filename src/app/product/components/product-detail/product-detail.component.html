@@ -1,12 +1,93 @@
-<div *ngIf="product" id="details_id">
-    <div class="product-info">
-    <h2>{{product.title}}</h2>
+<div id="details_id" *ngIf="!showForm">
+  <div class="product-info" *ngIf="hotel">
+    <h2>{{ hotel.name }}</h2>
     <p>
-        <img [src]="product.imgUrl" width="200" id="product-image" />
+      <img
+        src="https://wallpapershome.com/images/pages/ico_h/19258.jpg"
+        id="product-image"
+      />
     </p>
-       <p id="product-description"> {{product.description}}</p>
-    <p id="product-price">Price: {{product.price}}</p>
-    <button (click)="onAddToCart(product)" id="btn">Add to Cart</button>
-    </div>
+    <p class="type">Type:{{ hotel.type }}</p>
+    <p class="type">Rating:{{ hotel.rating }}</p>
+    <p class="product-price">Price: {{ hotel.price }}</p>
+    <button (click)="BookNow(hotel)" id="btn">Book Now</button>
+  </div>
 </div>
+<div class="myform1" *ngIf="showForm">
+  <form #myForm="ngForm" class="form-container">
+    <div class="form-group">
+      <label for="name">id</label>
 
+      <input
+        type="number"
+        class="form-control"
+        name="id"
+        [(ngModel)]="formData.id"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="formData.name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="descriotion">Type of Room</label>
+
+      <label>
+        <input
+          type="radio"
+          name="roomType"
+          value="ac"
+          [(ngModel)]="formData.type"
+        />
+        Air Conditioned (AC) Room
+      </label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          name="roomType"
+          value="non-ac"
+          [(ngModel)]="formData.type"
+        />
+        Non-Air Conditioned (Non-AC) Room
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+
+      <input
+        type="text"
+        class="form-control"
+        name="price"
+        [(ngModel)]="formData.price"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Location</label>
+
+      <input
+        type="text"
+        class="form-control"
+        name="location"
+        [(ngModel)]="formData.location"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="showData()">
+      Add Hotel
+    </button>
+  </form>
+</div>

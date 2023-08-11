@@ -1,13 +1,24 @@
 <button class="show" (click)="showForm = true" *ngIf="!showForm">
-  Show Form 
+  Show Form
 </button>
 
 <form
   *ngIf="showForm"
   #myForm="ngForm"
-  (ngSubmit)="onAddProduct()"
+  (ngSubmit)="onAddHotel()"
   class="form-container"
 >
+  <div class="form-group">
+    <label for="name">id</label>
+
+    <input
+      type="number"
+      class="form-control"
+      name="id"
+      [(ngModel)]="formData.id"
+      required
+    />
+  </div>
   <div class="form-group">
     <label for="name">Name</label>
 
@@ -21,15 +32,27 @@
   </div>
 
   <div class="form-group">
-    <label for="descriotion">Description</label>
+    <label for="descriotion">Type of Room</label>
 
-    <input
-      type="text"
-      class="form-control"
-      name="descriotion"
-      [(ngModel)]="formData.description"
-      required
-    />
+    <label>
+      <input
+        type="radio"
+        name="roomType"
+        value="ac"
+        [(ngModel)]="formData.type"
+      />
+      Air Conditioned (AC) Room
+    </label>
+    <br />
+    <label>
+      <input
+        type="radio"
+        name="roomType"
+        value="non-ac"
+        [(ngModel)]="formData.type"
+      />
+      Non-Air Conditioned (Non-AC) Room
+    </label>
   </div>
 
   <div class="form-group">
@@ -44,7 +67,52 @@
     />
   </div>
 
-  <button type="submit" class="btn btn-primary">Add Product</button>
+  <div class="form-group">
+    <label for="name">Location</label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="location"
+      [(ngModel)]="formData.location"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="name">Rating</label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="rating"
+      [(ngModel)]="formData.rating"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="name">hasLounge</label>
+    <input
+      type="checkbox"
+      class="form-control"
+      name="Lounge"
+      [(ngModel)]="formData.hasLounge"
+      id="lounge"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="name">hasParking</label>
+    <input
+      type="checkbox"
+      class="form-control"
+      name="Parking"
+      [(ngModel)]="formData.hasParking"
+      id="parking"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Hotel</button>
 
   <button class="btn btn-secondary" (click)="hideForm()">Hide Form</button>
 </form>

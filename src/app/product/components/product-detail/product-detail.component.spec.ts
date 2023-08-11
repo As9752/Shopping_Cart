@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ProductDetailComponent } from './product-detail.component';
+import { HotelDetailComponent } from "./product-detail.component";
 
-describe('ProductDetailComponent', () => {
-  let component: ProductDetailComponent;
-  let fixture: ComponentFixture<ProductDetailComponent>;
+describe("HotelDetailComponent", () => {
+  let component: HotelDetailComponent;
+  let fixture: ComponentFixture<HotelDetailComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent]
+      declarations: [HotelDetailComponent],
     });
-    fixture = TestBed.createComponent(ProductDetailComponent);
+    fixture = TestBed.createComponent(HotelDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

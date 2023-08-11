@@ -1,35 +1,17 @@
-header {
-    background-color: darkcyan;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    box-shadow: 0 2px 4px 0 rgba(207, 18, 18, 0.1);
-  }
-  
-  .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    display: inline-block;
-  }
-  #logodet{
-    text-decoration: none;
-  }
-  .links{
-    margin-left: 50%;
-  }
-  
-  .links a{
-   display: inline-block;
-   padding: 10px 20px; /* Adjust the padding as needed */
-   text-decoration: none;
-   color: #000;
-   margin-left:20px;
-  }
-  .links a.active{
-    color: #f00; /* Red color for active link */
-      font-weight: bold;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: dodgerblue;
+  padding: 10px 5px;
+  height: 10vh;
+  font-size: 40px;
+  background-image: url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.links {
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+}
